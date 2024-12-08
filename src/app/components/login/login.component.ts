@@ -33,8 +33,8 @@ export class LoginComponent {
         this.router.navigate(['/loja']);
       },
       (error) => {
-        console.error('Erro ao fazer login:', error);
-        this.erro = 'Falha no login. Verifique suas credenciais.';
+        console.error('Erro ao fazer login:', error.status, error.statusText, error.error);
+        this.erro = `Erro ao fazer login: ${error.error}`;
       }
     );
   }
