@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
