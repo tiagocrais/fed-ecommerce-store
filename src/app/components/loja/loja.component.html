@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-one-quarter" *ngFor="let produto of produtos">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img [src]="produto.imagem" alt="{{ produto.nome }}">
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-4">{{ produto.nome }}</p>
+            <p class="subtitle is-6">R$ {{ produto.preco.toFixed(2) }}</p>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item button is-primary">Comprar</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  
