@@ -14,11 +14,12 @@ export class LoginComponent {
   senha: string = '';
   dadosCliente!: DadosClienteResponseDto;
   erro: string = '';
+  erroEmailOuCpf: string = '';
+  erroSenha: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   validaLogin(): void {
-
     const apiUrl = '/api/store/dados/cliente/login';
 
     const headers = new HttpHeaders({
@@ -34,7 +35,13 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Erro ao fazer login:', error.status, error.statusText, error.error);
-        this.erro = `Erro ao fazer login: ${error.error}`;
+        if (error.error === 'Cpf/cnpj ou email não cadastrados') {
+          this.erroEmailOuCpf = error.error;
+          this.erroSenha = '';
+        } else if (error.error === 'Senha incorreta') {
+          this.erroSenha = error.error;
+          this.erroEmailOuCpf = '';
+        }
       }
     );
   }
