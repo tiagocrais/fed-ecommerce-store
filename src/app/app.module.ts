@@ -10,13 +10,15 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
 import { LojaComponent } from './components/loja/loja.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecuperarSenhaComponent } from './components/recuperar-senha/recuperar-senha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     InicioComponent,
-    LojaComponent
+    LojaComponent,
+    RecuperarSenhaComponent
   ],
   imports: [
     BrowserModule,

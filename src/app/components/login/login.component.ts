@@ -45,4 +45,10 @@ export class LoginComponent {
       }
     );
   }
+
+  esqueceuSenha(): void {
+    // Redirecionar para a página de recuperação de senha
+    this.router.navigate(['/esqueci-senha']);
+  }
+  
 }
