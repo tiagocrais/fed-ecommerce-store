@@ -38,13 +38,8 @@ export class RecuperarSenhaComponent {
       },
       (error) => {
         this.sucesso = '';
-        if (error.error.text) {
-          this.erro = error.error.text;
-          this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
-        } else {
-          this.erro = error.error;
-          this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
-        }
+        this.erro = error.error;
+        this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
       }
     );
   }
