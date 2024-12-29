@@ -28,18 +28,22 @@ export class RecuperarSenhaComponent {
       (response: string) => {
         if (response === 'Senha atual já cadastrada. Por favor insira uma nova') {
           this.erro = response;
+          this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
           this.sucesso = '';
         } else {
           this.sucesso = 'Senha alterada com sucesso!';
           this.erro = '';
+          this.erroNotificacao = '';
         }
       },
       (error) => {
         this.sucesso = '';
         if (error.error.text) {
           this.erro = error.error.text;
+          this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
         } else {
           this.erro = error.error;
+          this.erroNotificacao = 'Erro ao alterar a senha, tente novamente!';
         }
       }
     );
