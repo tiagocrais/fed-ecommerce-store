@@ -30,11 +30,9 @@ export class LoginComponent {
     this.http.get<DadosClienteResponseDto>(apiUrl, { headers }).subscribe(
       (data: DadosClienteResponseDto) => {
         this.dadosCliente = data;
-        console.log('Login bem-sucedido:', data);
         this.router.navigate(['/loja']);
       },
       (error) => {
-        console.error('Erro ao fazer login:', error.status, error.statusText, error.error);
         if (error.error === 'Cpf/cnpj ou email não cadastrados') {
           this.erroEmailOuCpf = error.error;
           this.erroSenha = '';
@@ -45,4 +43,9 @@ export class LoginComponent {
       }
     );
   }
+
+  esqueceuSenha(): void {
+    this.router.navigate(['/esqueci-senha']);
+  }
+  
 }
